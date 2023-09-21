@@ -171,7 +171,15 @@ class H11Protocol(asyncio.Protocol):
                     "raw_path": raw_path,
                     "query_string": query_string,
                     "headers": self.headers,
+                    "extensions": {},
                 }
+
+                # Add the client certificate to the request scope
+                ssl_object = self.transport.get_extra_info("ssl_object")
+                if ssl_object is not None:
+                    client_cert = ssl_object.getpeercert(False)
+                    if client_cert is not None:
+                        self.scope["extensions"]["tls"] = {"client_cert": client_cert}
 
                 for name, value in self.headers:
                     if name == b"connection":
