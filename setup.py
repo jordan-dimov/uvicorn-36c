@@ -66,15 +66,15 @@ extra_requirements = [
 
 
 setup(
-    name="uvicorn",
+    name="uvicorn36c",
     version=get_version("uvicorn"),
     url="https://www.uvicorn.org/",
     license="BSD",
-    description="The lightning-fast ASGI server.",
+    description="A Python 3.6 mod of the lightning-fast ASGI server which passes client certificates to the app.",
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
-    author="Tom Christie",
-    author_email="tom@tomchristie.com",
+    author="Jordan Dimov",
+    author_email="jdimov@a115.co.uk",
     packages=get_packages("uvicorn"),
     install_requires=minimal_requirements,
     extras_require={"standard": extra_requirements},
